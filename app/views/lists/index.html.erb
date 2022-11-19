@@ -1,0 +1,10 @@
+<div class='container'>
+  <h1>My List </h1>
+  <% @lists.each do |list| %>
+  <h6> <%=  list.name %></h6>
+    <small>
+      <%= link_to "Show this List", list %>
+    </small>
+    <hr>
+    <% end %>
+  </div>
