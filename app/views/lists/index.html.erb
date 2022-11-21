@@ -1,10 +1,27 @@
-<div class='container'>
-  <h1>My List </h1>
-  <% @lists.each do |list| %>
-  <h6> <%=  list.name %></h6>
-    <small>
-      <%= link_to "Show this List", list %>
-    </small>
-    <hr>
-    <% end %>
+<ul class="nav justify-content-end">
+  <li class="nav-item">
+    <a class="nav-link active" aria-current="page" href="#">My List</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="#">My Account</a>
+  </li>
+</ul>
+
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= asset_path('banner.jpg') %>)">
+  <div class="container" >
+    <h1>My Movie list
+    <p>"Cinema is the most beautiful fraud in the world."</p>
+     <%= link_to "Add new list", new_list_path, class: "btn btn-light" %>
   </div>
+</div>
+<br>
+
+<div class="cards">
+<% @lists.each do |list| %>
+    <%= link_to list_path(list) do %>
+ <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= asset_path('list_background.jpg') %>)">
+   <%= list.name %>
+</div>
+<% end %>
+<% end %>
+</div>
