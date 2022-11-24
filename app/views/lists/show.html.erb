@@ -24,8 +24,6 @@
     <div class="col">
   <% @list.movies.each do |movie| %>
 <div class="card" style="width: 18rem;">
-<%= cl_image_tag("niqpcbb87yosms582886",
-      width: 280, height: 200, crop: :thumb, gravity: :face) %>
   <div class="card-body">
     <h5 class="card-title"><%= movie.title %></h5>
     <p class="card-text"><%= movie.overview %></p>
@@ -38,5 +36,3 @@
   </div>
 </div>
 </div>
-
-<%= cl_image_tag @list.photo.key, height: 300, width: 400, crop: :fill %>

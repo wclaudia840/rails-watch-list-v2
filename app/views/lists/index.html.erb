@@ -19,13 +19,9 @@
 <div class="cards">
 <% @lists.each do |list| %>
     <%= link_to list_path(list) do %>
- <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= asset_path('list_background.jpg') %>)">
-   <%= list.name %>
-</div>
-<% end %>
-<% end %>
-</div>
-<%#
-<%= cl_image_tag("niqpcbb87yosms582886",
-      width: 400, height: 250, crop: :thumb, gravity: :face) %>
-<%# <%= cl_image_path @list.photo.key, height: 300, width: 400, crop: :fill %>
+ <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= list.photo.attached? ? cl_image_path(list.photo.key) : asset_path('list_background.jpg') %>)">
+            <%= list.name %>
+      </div>
+        <% end %>
+    <% end %>
+  </div>
